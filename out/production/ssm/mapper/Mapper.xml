@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 这是映射文件，命名的规则是xxMepper.xml -->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.Mapper">
+    <!-- 查询 -->
+    <select id="query" resultType="user">
+        SELECT * FROM consumer
+    </select>
+
+    <!-- 通过用户名进行查询 -->
+    <select id="query2" parameterType="String" resultType="user">
+        SELECT * FROM consumer WHERE username=#{username}
+    </select>
+
+    <!-- 添加用户  -->
+    <insert id="query3" parameterType="user">
+        insert into consumer(username,password,email,telephone) value(#{username},#{password},#{email},#{telephone})
+    </insert>
+
+    <!-- 删除用户 -->
+    <!-- <delete id="query4" parameterType="user">
+    	delete from Dept where DEPTNO=#{id}
+    </delete> -->
+
+    <!-- 更新用户 -->
+    <!-- <update id="query5" parameterType="user">
+    	update Dept set DEPTNO=#{deptNo},DNAME=#{dname},LOC=#{loc} where DEPTNO=#{deptNo}
+    </update> -->
+
+</mapper>
